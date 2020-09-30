@@ -17,18 +17,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      home: OnboardingScreen1(),
     );
   }
 }
 
 
-class Home extends StatefulWidget {
+class OnboardingScreen1 extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<OnboardingScreen1> {
 
   List<SliderModel> mySLides = new List<SliderModel>();
   int slideIndex = 0;
