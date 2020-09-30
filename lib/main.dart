@@ -23,12 +23,12 @@ class MyApp extends StatelessWidget {
 }
 
 
-class OnboardingScreen1 extends StatefulWidget {
+class OnboardingScreen2 extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<OnboardingScreen1> {
+class _HomeState extends State<OnboardingScreen2> {
 
   List<SliderModel> mySLides = new List<SliderModel>();
   int slideIndex = 0;
