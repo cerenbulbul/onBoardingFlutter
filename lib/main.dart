@@ -7,6 +7,15 @@ void main() {
   runApp(MyApp());
 }
 
+
+/*
+There is 3 Splash Screen classes:
+    1. OnboardingScreen1()
+    2. OnboardingScreen2()
+    3. OnboardingScreen3()
+ */
+
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
