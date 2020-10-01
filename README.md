@@ -41,7 +41,7 @@
 There are more than one layouts. I drawed layouts chart. 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/36292743/94847941-2136f080-03d8-11eb-9e00-a19ab1f5f826.png"  />
+  <img src="https://user-images.githubusercontent.com/36292743/94853866-e08fa500-03e0-11eb-8904-4daabe6281b7.png"  />
 </p>
 
 **Indicator Animations:**
@@ -84,9 +84,32 @@ There are more than one layouts. I drawed layouts chart.
 
 
 <a name="imp2"></a>
-### Implementation
+### Description
 
+**Page Layouts:**
 
+There are more than one layouts. I drawed layouts chart. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/36292743/94850872-7117b680-03dc-11eb-944d-5fd796a2f461.png"  />
+</p>
+
+**Indicator Animations:**
+
+```
+  Widget _buildPageIndicator(bool isCurrentPage){
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 2.0),
+      height: isCurrentPage ? 10.0 : 6.0,
+      width: isCurrentPage ? 10.0 : 6.0,
+      decoration: BoxDecoration(
+        color: isCurrentPage ? Color.fromRGBO(137, 168, 73, 1) : Color.fromRGBO(173, 216, 100, 1),
+        borderRadius: BorderRadius.circular(12),
+      ),
+    );
+  }
+
+```
 
 
 <a name="Demo2"></a>
@@ -108,8 +131,54 @@ There are more than one layouts. I drawed layouts chart.
 
 
 <a name="imp3"></a>
-### Implementation
+### Description
 
+**Page Layouts:**
+
+There are more than one layouts. I drawed layouts chart. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/36292743/94852534-e3899600-03de-11eb-95b1-f96f546d653a.png"  />
+</p>
+
+**Indicator Animations:**
+
+```
+return AnimatedContainer(
+                        duration: Duration(milliseconds: 300),
+                        height: 10,
+                        width: (index == _currentPage) ? 30 : 10,
+                        margin:
+                        EdgeInsets.symmetric(horizontal: 5, vertical: 30),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: (index == _currentPage)
+                                ? Color.fromRGBO(137, 168, 73, 1)
+                                : Color.fromRGBO(137, 168, 73, 1)));
+
+```
+
+**Button Animations:**
+
+```
+AnimatedContainer(
+                  alignment: Alignment.center,
+                  duration: Duration(milliseconds: 300),
+                  height: 70,
+                  width: (_currentPage == (_pages.length - 1)) ? 200 : 75,
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(137, 168, 73, 1),
+                      borderRadius: BorderRadius.circular(35)),
+                  child: (_currentPage == (_pages.length - 1))
+                      ? Text(
+                    "Get Started",
+                    ), )
+                      : Icon(
+                    Icons.navigate_next,
+                    size: 50,
+                    color: Colors.white,
+                  ), ), ),
+```
 
 <a name="Demo3"></a>
 ### Demo
@@ -128,7 +197,32 @@ There are more than one layouts. I drawed layouts chart.
 
 
 <a name="imp4"></a>
-### Implementation
+### Description
+
+**Page Layouts:**
+
+There are more than one layouts. I drawed layouts chart. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/36292743/94854726-357feb00-03e2-11eb-94cd-98cde5f1ca93.png"  />
+</p>
+
+**Indicator Animations:**
+
+```
+  Widget _buildPageIndicator(bool isCurrentPage) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 350),
+      margin: EdgeInsets.symmetric(horizontal: 5.0),
+      height: isCurrentPage ? 18.0 : 10.0,
+      width: isCurrentPage ? 18.0 : 10.0,
+      decoration: BoxDecoration(
+        color: isCurrentPage ? Colors.white : Colors.white54,
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+    );
+  }
+```
 
 
 <a name="Demo4"></a>
