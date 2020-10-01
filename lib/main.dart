@@ -17,12 +17,187 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: OnboardingScreen1(),
+      home: OnboardingScreen3(),
     );
   }
 }
 
 
+
+
+class OnboardingScreen3 extends StatefulWidget {
+  @override
+  _LandingState createState() => _LandingState();
+}
+
+class _LandingState extends State<OnboardingScreen3> {
+  int _currentPage = 0;
+  PageController _controller = PageController();
+
+  List<Widget> _pages = [
+    SliderPage(
+        title: "Title",
+        description:
+        "Description",
+        image: "images/logo_fible.png"),
+    SliderPage(
+        title: "Title",
+        description:
+        "Description",
+        image: "images/logo_fible.png"),
+    SliderPage(
+        title: "Title",
+        description:
+        "Description",
+        image: "images/logo_fible.png"),
+  ];
+
+  _onchanged(int index) {
+    setState(() {
+      _currentPage = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          PageView.builder(
+            scrollDirection: Axis.horizontal,
+            onPageChanged: _onchanged,
+            controller: _controller,
+            itemCount: _pages.length,
+            itemBuilder: (context, int index) {
+              return _pages[index];
+            },
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List<Widget>.generate(_pages.length, (int index) {
+                    return AnimatedContainer(
+                        duration: Duration(milliseconds: 300),
+                        height: 10,
+                        width: (index == _currentPage) ? 30 : 10,
+                        margin:
+                        EdgeInsets.symmetric(horizontal: 5, vertical: 30),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: (index == _currentPage)
+                                ? Color.fromRGBO(137, 168, 73, 1)
+                                : Color.fromRGBO(137, 168, 73, 1)));
+                  })),
+              InkWell(
+                onTap: () {
+                  _controller.nextPage(
+                      duration: Duration(milliseconds: 800),
+                      curve: Curves.easeInOutQuint);
+                },
+                child: AnimatedContainer(
+                  alignment: Alignment.center,
+                  duration: Duration(milliseconds: 300),
+                  height: 70,
+                  width: (_currentPage == (_pages.length - 1)) ? 200 : 75,
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(137, 168, 73, 1),
+                      borderRadius: BorderRadius.circular(35)),
+                  child: (_currentPage == (_pages.length - 1))
+                      ? Text(
+                    "Get Started",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  )
+                      : Icon(
+                    Icons.navigate_next,
+                    size: 50,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
+class SliderPage extends StatelessWidget {
+  final String title;
+  final String description;
+  final String image;
+
+  SliderPage({this.title, this.description, this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
+    return Container(
+      color: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image.asset(
+            'images/logo_fible.png',
+            width: width * 0.6,
+          ),
+          SizedBox(
+            height: 60,
+          ),
+          Text(
+            title,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Color.fromRGBO(137, 168, 73, 1)),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 80),
+            child: Text(
+              description,
+              style: TextStyle(
+                height: 1.5,
+                fontWeight: FontWeight.normal,
+                fontSize: 15,
+                letterSpacing: 0.7,
+                color: Color.fromRGBO(27, 64, 67, 1)
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          SizedBox(
+            height: 60,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Onboarding 2
 class OnboardingScreen2 extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -96,7 +271,7 @@ class _HomeState extends State<OnboardingScreen2> {
                 onPressed: (){
                   controller.animateToPage(2, duration: Duration(milliseconds: 400), curve: Curves.linear);
                 },
-                splashColor: Color.fromRGBO(137, 168, 73, 1),
+                splashColor: Color.fromRGBO(173, 216, 100, 1),
                 child: Text(
                   "SKIP",
                   style: TextStyle(color: Color.fromRGBO(137, 168, 73, 1), fontWeight: FontWeight.w600),
@@ -113,7 +288,7 @@ class _HomeState extends State<OnboardingScreen2> {
                   print("this is slideIndex: $slideIndex");
                   controller.animateToPage(slideIndex + 1, duration: Duration(milliseconds: 500), curve: Curves.linear);
                 },
-                splashColor: Color.fromRGBO(137, 168, 73, 1),
+                splashColor: Color.fromRGBO(173, 216, 100, 1),
                 child: Text(
                   "NEXT",
                   style: TextStyle(color: Color.fromRGBO(137, 168, 73, 1), fontWeight: FontWeight.w600),
@@ -176,7 +351,6 @@ class SlideTile extends StatelessWidget {
   }
 }
 
-
 class SliderModel{
 
   String imageAssetPath;
@@ -210,7 +384,6 @@ class SliderModel{
   }
 
 }
-
 
 List<SliderModel> getSlides(){
 
