@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: OnboardingScreen4(),
+      home: OnboardingScreen1(),
     );
   }
 }
